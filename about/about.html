@@ -1,0 +1,1985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webnox - Digital Transformation Solutions</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1a4b8c;
+            --secondary-blue: #2a6ebb;
+            --light-blue: #e8f2ff;
+            --primary-orange: #ff6b35;
+            --secondary-orange: #ff8c42;
+            --light-orange: #fff2e8;
+            --dark: #2d3748;
+            --light: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        /* Custom Navbar */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            padding: 15px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: white !important;
+        }
+        
+        .navbar-brand i {
+            color: var(--primary-orange);
+            margin-right: 10px;
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            margin: 0 8px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: white !important;
+        }
+        
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-orange);
+            transition: width 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            color: var(--primary-orange);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 75, 140, 0.85), rgba(42, 110, 187, 0.85)), 
+                        url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 180px 0 120px;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+        }
+        
+        .btn-primary-custom {
+            background: linear-gradient(45deg, var(--primary-orange), var(--secondary-orange));
+            border: none;
+            color: white;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.6);
+            color: white;
+        }
+        
+        .btn-primary-custom::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+        }
+        
+        .btn-primary-custom:hover::after {
+            left: 100%;
+        }
+        
+        /* Section Styling */
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-orange), var(--secondary-orange));
+            border-radius: 2px;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+            border: none;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+        
+        .service-card:hover::before {
+            height: 100%;
+        }
+        
+        .service-card:hover .service-icon,
+        .service-card:hover .card-title,
+        .service-card:hover .card-text {
+            color: white;
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            color: var(--primary-orange);
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card .card-title {
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card .card-text {
+            color: #666;
+            transition: all 0.3s ease;
+        }
+        
+        /* What Sets Us Apart Section */
+        .sets-apart {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--light-blue) 0%, white 100%);
+        }
+        
+        .sets-apart-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .sets-apart-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .sets-apart-header p {
+            font-size: 1.3rem;
+            color: var(--dark);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--primary-orange), transparent);
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+            border-left: 5px solid var(--primary-orange);
+            margin-bottom: 2rem;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 15px;
+            padding: 4rem 2rem;
+            color: white;
+            margin-top: 4rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-orange);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        /* Partner Colleges Section */
+        .partner-colleges {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--light-blue) 0%, white 100%);
+        }
+        
+        .college-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .college-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid var(--primary-orange);
+        }
+        
+        .college-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .college-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            background: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .college-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .college-card:hover .college-logo {
+            background: var(--primary-blue);
+            transform: scale(1.1);
+        }
+        
+        .college-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .college-location {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .college-type {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background: var(--light-orange);
+            color: var(--primary-orange);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .college-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: all 0.6s ease;
+        }
+        
+        .college-card:hover::before {
+            left: 100%;
+        }
+        
+        .view-more-btn {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        /* Mission Section */
+        .mission {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--light-blue) 0%, white 100%);
+        }
+        
+        .mission-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .mission-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .mission-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-header p {
+            font-size: 1.3rem;
+            color: var(--dark);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        .mission-statement {
+            background: white;
+            border-radius: 15px;
+            padding: 4rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mission-statement::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-orange), var(--secondary-orange));
+        }
+        
+        .mission-statement h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-statement p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+        
+        .mission-highlight {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--light-orange);
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-orange);
+        }
+        
+        .mission-highlight i {
+            font-size: 2rem;
+            color: var(--primary-orange);
+            margin-right: 1.5rem;
+        }
+        
+        .mission-highlight h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .mission-highlight p {
+            margin-bottom: 0;
+            color: #666;
+        }
+        
+        .mission-cta {
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .mission-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .mission-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            margin-bottom: 30px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .member-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .member-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .team-member:hover .member-img img {
+            transform: scale(1.1);
+        }
+        
+        .member-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .member-info h4 {
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .member-role {
+            color: var(--primary-orange);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        
+        /* Contact Form Section */
+        .contact-form-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--light-blue) 0%, white 100%);
+        }
+        
+        .contact-form-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .contact-form-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-form-header p {
+            font-size: 1.3rem;
+            color: var(--dark);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        .contact-form-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .contact-info-sidebar {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 3rem;
+            height: 100%;
+        }
+        
+        .contact-info-sidebar h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .contact-info-sidebar p {
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .contact-detail-large {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .contact-detail-large i {
+            font-size: 1.5rem;
+            color: var(--primary-orange);
+            margin-right: 15px;
+            width: 30px;
+        }
+        
+        .contact-detail-large span {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .form-side {
+            padding: 3rem;
+        }
+        
+        .form-side h3 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .form-label {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--primary-blue);
+        }
+        
+        .form-control {
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-orange);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+        
+        .form-control.error {
+            border-color: #e53e3e;
+        }
+        
+        .error-message {
+            color: #e53e3e;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Success Message */
+        .success-message {
+            background: #48bb78;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            display: none;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+        }
+        
+        .contact-info-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            height: 100%;
+        }
+        
+        .contact-info-box h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-detail i {
+            font-size: 1.2rem;
+            color: var(--primary-orange);
+            margin-right: 15px;
+            width: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 70px 0 20px;
+        }
+        
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-orange);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-orange);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Social Media Modal */
+        .social-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .social-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .social-modal-content {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            transform: translateY(30px);
+            transition: all 0.3s ease;
+        }
+        
+        .social-modal.active .social-modal-content {
+            transform: translateY(0);
+        }
+        
+        .social-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #666;
+            cursor: pointer;
+        }
+        
+        .social-modal-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1.5rem;
+            border: 5px solid var(--light-blue);
+        }
+        
+        .social-modal-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .social-modal-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .social-modal-role {
+            color: var(--primary-orange);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+        }
+        
+        .social-link.facebook {
+            background: #3b5998;
+        }
+        
+        .social-link.instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+        
+        .social-link.linkedin {
+            background: #0077b5;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .contact-info {
+                margin-top: 15px;
+                text-align: center;
+            }
+            
+            .sets-apart-header h2, .mission-header h2, .contact-form-header h2 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-info-sidebar {
+                padding: 2rem;
+            }
+            
+            .college-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 150px 0 80px;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .navbar-collapse {
+                margin-top: 15px;
+            }
+            
+            .sets-apart-header h2, .mission-header h2, .contact-form-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .mission-statement {
+                padding: 2.5rem;
+            }
+            
+            .form-side {
+                padding: 2rem;
+            }
+            
+            .college-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn-primary-custom {
+                padding: 10px 25px;
+                font-size: 1rem;
+            }
+            
+            .mission-statement {
+                padding: 1.5rem;
+            }
+            
+            .sets-apart-header h2, .mission-header h2, .contact-form-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .contact-info-sidebar, .form-side {
+                padding: 1.5rem;
+            }
+            
+            .college-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 1rem;
+            }
+            
+            .college-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+                  <a class="navbar-brand" href="https://www.gatewaysoftwaresolutions.com"><img height="50px" width="200px" src="../assets/gsslogo.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active" href="../home.html">Home</a>
+                        <ul class="dropdown-menu" aria-labelledby="hireDropdown">
+                            <li><a class="dropdown-item" href="../about/about.html">About Gateway</a></li>
+                            <li><a class="dropdown-item" href="../about/index.html">Profile</a></li>
+                            <li><a class="dropdown-item" href="../about/ourteam.html">Our Core Team</a></li>
+                            <li><a class="dropdown-item" href="../about/faq.html">FAQ</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown" href="../product.html" id="servicesDropdown" role="button">
+                            Products
+                        </a>
+                        <!-- <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="#">Web Development</a></li>
+                            <li><a class="dropdown-item" href="#">App Development</a></li>
+                            <li><a class="dropdown-item" href="#">AI Solutions</a></li>
+                            <li><a class="dropdown-item" href="#">IOT Solutions</a></li>
+                            <li><a class="dropdown-item" href="#">Digital Marketing</a></li>
+                        </ul> -->
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown" href="#" id="hireDropdown" role="button">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="hireDropdown">
+                            <li><a class="dropdown-item" href="../digital-marketing.html">Digital Marketing</a></li>
+                            <li><a class="dropdown-item" href="../search-engine.html">Search Engine Optimization</a></li>
+                            <li><a class="dropdown-item" href="../e-commerce.html">E-commerce Development</a></li>
+                            <li><a class="dropdown-item" href="../mobile-app-development.html">Mobile App Development</a></li>
+                            <li><a class="dropdown-item" href="../social-media-marketing.html">Social Media Marketing</a></li>
+                            <li><a class="dropdown-item" href="../ai-agent.html">AI Agent Development Company</a></li>
+                            <li><a class="dropdown-item" href="../iot-development.html">IOT & Robotics</a></li>
+                            <li><a class="dropdown-item" href="../wordpress-development.html">Wordpress Development</a></li>
+                            <li><a class="dropdown-item" href="../branding.html">Branding</a></li>
+                            <li><a class="dropdown-item" href="../logo-design.html">Logo Design</a></li>
+                            <li><a class="dropdown-item" href="../meta-ads.html">Meta Ads</a></li>
+                            <li><a class="dropdown-item" href="../game-development.html">Game Development</a></li>
+                            <li><a class="dropdown-item" href="../digital-transformation.html">Digital Transformation Services</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown" href="#" id="productsDropdown" role="button">
+                            Internship & courses
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                            <li><a class="dropdown-item" href="../new/webtech.html">Web Technology</a></li>
+                            <li><a class="dropdown-item" href="../new/flutterapp.html">Mobile App</a></li>
+                            <li><a class="dropdown-item" href="../new/embeddediot.html">Embedded Iot</a></li>
+                                       <li><a class="dropdown-item" href="../new/genai.html">Gen Ai</a></li>
+                            <li><a class="dropdown-item" href="../new/cybersecurity.html">Cyber Security</a></li>
+                            <li><a class="dropdown-item" href="../new/javaj2ee.html">Java </a></li>
+                                       <li><a class="dropdown-item" href="../new/pythondj.html">Pyton With Django</a></li>
+                            <li><a class="dropdown-item" href="../new/powerbi.html">Data Analytics </a></li>
+                            <li><a class="dropdown-item" href="../new/pythonds.html">Data Science</a></li>
+                                       <li><a class="dropdown-item" href="../new/pythonmysql.html">Python Full Stack</a></li>
+                            <li><a class="dropdown-item" href="../new/reactjstab.html">React js</a></li>
+                            <li><a class="dropdown-item" href="../new/rtoolsprog.html">R Tool</a></li>
+                                       <li><a class="dropdown-item" href="../new/softwaretesting.html">Software Testing</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../dev-page.html">AI Development</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown" href="../iot_robotic.html" id="companyDropdown" role="button">
+                            IOT & Robotics
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../career.html">Careers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gateway home page/gateway project/webindhu">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="animate-on-scroll">Empowering Businesses Overturn The Ordinary.</h1>
+                    <p class="animate-on-scroll">End-to-end digital transformation, from cutting-edge application development to online presence and strategic digital marketing</p>
+                    <a href="#contact-form" class="btn btn-primary-custom animate-on-scroll">START YOUR PROJECT</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p class="lead">Comprehensive digital solutions for your business growth</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card animate-on-scroll">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3 class="card-title">Application Development</h3>
+                            <p class="card-text">Custom software solutions built with cutting-edge technologies to drive your business forward and create exceptional user experiences.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card animate-on-scroll">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3 class="card-title">Online Presence</h3>
+                            <p class="card-text">Strategic web development and design services that create compelling digital experiences and strengthen your brand identity.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card service-card animate-on-scroll">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="card-title">Digital Marketing</h3>
+                            <p class="card-text">Data-driven marketing strategies that increase visibility, drive engagement, and deliver measurable results for your business.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Sets Us Apart Section -->
+    <section class="sets-apart" id="sets-apart">
+        <div class="container">
+            <div class="sets-apart-header animate-on-scroll">
+                <h2>What Sets Us Apart?</h2>
+                <p>At Webnox, we don't just complete projects, we build relationships. Our comprehensive approach and commitment to results have earned us a reputation as a trusted partner for end-to-end digital solutions.</p>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="feature-card animate-on-scroll">
+                        <h3>14+ Years of Experience</h3>
+                        <p>We've been helping businesses thrive online for more than a decade, delivering proven results across diverse industries.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="feature-card animate-on-scroll">
+                        <h3>Award-winning Team</h3>
+                        <p>Our team's talent and innovation have earned us multiple awards, bringing exceptional expertise to every project.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="feature-card animate-on-scroll">
+                        <h3>Maximizing ROI</h3>
+                        <p>We prioritize your Return On Investment, aligning our efforts with your business objectives to deliver measurable value.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="feature-card animate-on-scroll">
+                        <h3>Track Record of Success</h3>
+                        <p>Explore our case studies to witness how we've consistently propelled businesses like yours towards success.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-section animate-on-scroll">
+                <div class="row">
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="stat-item">
+                            <div class="stat-number">14+</div>
+                            <div class="stat-text">Years of Experience</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="stat-item">
+                            <div class="stat-number">#1</div>
+                            <div class="stat-text">Ranking in Coimbatore</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="stat-item">
+                            <div class="stat-number">1200+</div>
+                            <div class="stat-text">Clients</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="stat-item">
+                            <div class="stat-number">17L+</div>
+                            <div class="stat-text">Leads Generated</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="stat-item">
+                            <div class="stat-number">20+</div>
+                            <div class="stat-text">Leading Products</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-text">Team Members</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partner Colleges Section -->
+    <section class="partner-colleges" id="partner-colleges">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Partner Colleges</h2>
+                <p class="lead">50+ prestigious institutions collaborating with Webnox for digital transformation</p>
+            </div>
+            
+            <div class="college-grid">
+                <!-- College 1 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/49/Anna_University_Logo.svg/1200px-Anna_University_Logo.svg.png" alt="Anna University">
+                    </div>
+                    <h4 class="college-name">Anna University</h4>
+                    <p class="college-location">Chennai, Tamil Nadu</p>
+                    <span class="college-type">Engineering</span>
+                </div>
+                
+                <!-- College 2 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/7e/PSG_College_of_Technology_logo.png/220px-PSG_College_of_Technology_logo.png" alt="PSG College of Technology">
+                    </div>
+                    <h4 class="college-name">PSG College of Technology</h4>
+                    <p class="college-location">Coimbatore, Tamil Nadu</p>
+                    <span class="college-type">Engineering</span>
+                </div>
+                
+                <!-- College 3 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/Loyola_College%2C_Chennai_Logo.png/220px-Loyola_College%2C_Chennai_Logo.png" alt="Loyola College">
+                    </div>
+                    <h4 class="college-name">Loyola College</h4>
+                    <p class="college-location">Chennai, Tamil Nadu</p>
+                    <span class="college-type">Arts & Science</span>
+                </div>
+                
+                <!-- College 4 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/82/Vellore_Institute_of_Technology_seal.svg/1200px-Vellore_Institute_of_Technology_seal.svg.png" alt="VIT University">
+                    </div>
+                    <h4 class="college-name">VIT University</h4>
+                    <p class="college-location">Vellore, Tamil Nadu</p>
+                    <span class="college-type">Engineering</span>
+                </div>
+                
+                <!-- College 5 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/95/SRM_Institute_of_Science_and_Technology_logo.png/220px-SRM_Institute_of_Science_and_Technology_logo.png" alt="SRM University">
+                    </div>
+                    <h4 class="college-name">SRM University</h4>
+                    <p class="college-location">Chennai, Tamil Nadu</p>
+                    <span class="college-type">Engineering</span>
+                </div>
+                
+                <!-- College 6 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/49/Amrita_vishwa_vidyapeetham-color-logo.png/220px-Amrita_vishwa_vidyapeetham-color-logo.png" alt="Amrita University">
+                    </div>
+                    <h4 class="college-name">Amrita University</h4>
+                    <p class="college-location">Coimbatore, Tamil Nadu</p>
+                    <span class="college-type">Engineering</span>
+                </div>
+                
+                <!-- College 7 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Christ_University_Logo.svg/1200px-Christ_University_Logo.svg.png" alt="Christ University">
+                    </div>
+                    <h4 class="college-name">Christ University</h4>
+                    <p class="college-location">Bangalore, Karnataka</p>
+                    <span class="college-type">Arts & Science</span>
+                </div>
+                
+                <!-- College 8 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/Madras_Christian_College_logo.png/220px-Madras_Christian_College_logo.png" alt="Madras Christian College">
+                    </div>
+                    <h4 class="college-name">Madras Christian College</h4>
+                    <p class="college-location">Chennai, Tamil Nadu</p>
+                    <span class="college-type">Arts & Science</span>
+                </div>
+                
+                <!-- College 9 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9c/Kumaraguru_College_of_Technology_logo.png/220px-Kumaraguru_College_of_Technology_logo.png" alt="Kumaraguru College of Technology">
+                    </div>
+                    <h4 class="college-name">Kumaraguru College of Technology</h4>
+                    <p class="college-location">Coimbatore, Tamil Nadu</p>
+                    <span class="college-type">Engineering</span>
+                </div>
+                
+                <!-- College 10 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6d/SSN_College_of_Engineering_Logo.png/220px-SSN_College_of_Engineering_Logo.png" alt="SSN College of Engineering">
+                    </div>
+                    <h4 class="college-name">SSN College of Engineering</h4>
+                    <p class="college-location">Chennai, Tamil Nadu</p>
+                    <span class="college-type">Engineering</span>
+                </div>
+                
+                <!-- College 11 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1d/Sri_Krishna_College_of_Engineering_and_Technology_logo.png/220px-Sri_Krishna_College_of_Engineering_and_Technology_logo.png" alt="Sri Krishna College of Technology">
+                    </div>
+                    <h4 class="college-name">Sri Krishna College of Technology</h4>
+                    <p class="college-location">Coimbatore, Tamil Nadu</p>
+                    <span class="college-type">Engineering</span>
+                </div>
+                
+                <!-- College 12 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3e/Hindustan_Institute_of_Technology_and_Science_Logo.png/220px-Hindustan_Institute_of_Technology_and_Science_Logo.png" alt="Hindustan Institute of Technology">
+                    </div>
+                    <h4 class="college-name">Hindustan Institute of Technology</h4>
+                    <p class="college-location">Chennai, Tamil Nadu</p>
+                    <span class="college-type">Engineering</span>
+                </div>
+                
+                <!-- College 13 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/St._Joseph%27s_College%2C_Tiruchirappalli_logo.png/220px-St._Joseph%27s_College%2C_Tiruchirappalli_logo.png" alt="St. Joseph's College">
+                    </div>
+                    <h4 class="college-name">St. Joseph's College</h4>
+                    <p class="college-location">Trichy, Tamil Nadu</p>
+                    <span class="college-type">Arts & Science</span>
+                </div>
+                
+                <!-- College 14 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Thiagarajar_College_of_Engineering_logo.png/220px-Thiagarajar_College_of_Engineering_logo.png" alt="Thiagarajar College of Engineering">
+                    </div>
+                    <h4 class="college-name">Thiagarajar College of Engineering</h4>
+                    <p class="college-location">Madurai, Tamil Nadu</p>
+                    <span class="college-type">Engineering</span>
+                </div>
+                
+                <!-- College 15 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6d/National_Institute_of_Technology%2C_Tiruchirappalli_Logo.svg/1200px-National_Institute_of_Technology%2C_Tiruchirappalli_Logo.svg.png" alt="NIT Trichy">
+                    </div>
+                    <h4 class="college-name">NIT Trichy</h4>
+                    <p class="college-location">Trichy, Tamil Nadu</p>
+                    <span class="college-type">Engineering</span>
+                </div>
+                
+                <!-- College 16 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6e/College_of_Engineering%2C_Guindy_logo.png/220px-College_of_Engineering%2C_Guindy_logo.png" alt="College of Engineering Guindy">
+                    </div>
+                    <h4 class="college-name">College of Engineering Guindy</h4>
+                    <p class="college-location">Chennai, Tamil Nadu</p>
+                    <span class="college-type">Engineering</span>
+                </div>
+                
+                <!-- College 17 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/7e/PSG_College_of_Arts_%26_Science_Logo.png/220px-PSG_College_of_Arts_%26_Science_Logo.png" alt="PSG College of Arts & Science">
+                    </div>
+                    <h4 class="college-name">PSG College of Arts & Science</h4>
+                    <p class="college-location">Coimbatore, Tamil Nadu</p>
+                    <span class="college-type">Arts & Science</span>
+                </div>
+                
+                <!-- College 18 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4e/Kongu_Engineering_College_logo.png/220px-Kongu_Engineering_College_logo.png" alt="Kongu Engineering College">
+                    </div>
+                    <h4 class="college-name">Kongu Engineering College</h4>
+                    <p class="college-location">Erode, Tamil Nadu</p>
+                    <span class="college-type">Engineering</span>
+                </div>
+                
+                <!-- College 19 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8d/Velammal_Engineering_College_logo.png/220px-Velammal_Engineering_College_logo.png" alt="Velammal Engineering College">
+                    </div>
+                    <h4 class="college-name">Velammal Engineering College</h4>
+                    <p class="college-location">Chennai, Tamil Nadu</p>
+                    <span class="college-type">Engineering</span>
+                </div>
+                
+                <!-- College 20 -->
+                <div class="college-card animate-on-scroll">
+                    <div class="college-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6d/Sathyabama_Institute_of_Science_and_Technology_logo.png/220px-Sathyabama_Institute_of_Science_and_Technology_logo.png" alt="Sathyabama University">
+                    </div>
+                    <h4 class="college-name">Sathyabama University</h4>
+                    <p class="college-location">Chennai, Tamil Nadu</p>
+                    <span class="college-type">Engineering</span>
+                </div>
+            </div>
+            
+            <div class="view-more-btn animate-on-scroll">
+                <a href="#contact-form" class="btn btn-primary-custom">VIEW ALL 50+ COLLEGES</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission" id="mission">
+        <div class="container">
+            <div class="mission-content">
+                <div class="mission-header animate-on-scroll">
+                    <h2>Our Mission</h2>
+                    <p>The foremost provider of digital transformation solutions that empower organizations to adapt quickly and lead in the digital era.</p>
+                </div>
+                
+                <div class="mission-statement animate-on-scroll">
+                    <h3>Guiding Your Digital Journey</h3>
+                    <p>We Are The Architects of Digital Prosperity</p>
+                    <p>Serving as pioneering architects of groundbreaking ventures that drive enterprises ahead, we have passion towards helping businesses succeed online. Established in Coimbatore in 2011, we are a leading web design, digital marketing, mobile application and custom software development company serving clients across the globe.</p>
+                    
+                    <div class="mission-highlight animate-on-scroll">
+                        <i class="fas fa-lightbulb"></i>
+                        <div>
+                            <h4>Think Big, Remain Agile</h4>
+                            <p>Innovative Solution For a Connected World</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mission-cta animate-on-scroll">
+                    <h3>Ready to Transform Your Business?</h3>
+                    <p>Start your digital transformation journey with us today and experience the difference.</p>
+                    <a href="#contact-form" class="btn btn-primary-custom">START YOUR PROJECT</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet Our Team</h2>
+                <p class="lead">The talented professionals driving digital transformation</p>
+            </div>
+            <div class="row g-4">
+                <!-- Team Member 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card team-member animate-on-scroll" data-member="1">
+                        <div class="member-img">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Alex Johnson">
+                        </div>
+                        <div class="member-info">
+                            <h4>SABARINATHAN MUTHU.ER</h4>
+                            <div class="member-role">Chief Executive Officer</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card team-member animate-on-scroll" data-member="2">
+                        <div class="member-img">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sarah Williams">
+                        </div>
+                        <div class="member-info">
+                            <h4>Sarah Williams</h4>
+                            <div class="member-role">Creative Director</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Team Member 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card team-member animate-on-scroll" data-member="3">
+                        <div class="member-img">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Michael Chen">
+                        </div>
+                        <div class="member-info">
+                            <h4>Michael Chen</h4>
+                            <div class="member-role">CTO & Lead Developer</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Team Member 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card team-member animate-on-scroll" data-member="4">
+                        <div class="member-img">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Priya Sharma">
+                        </div>
+                        <div class="member-info">
+                            <h4>Priya Sharma</h4>
+                            <div class="member-role">Digital Marketing Head</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section" id="contact-form">
+        <div class="container">
+            <div class="contact-form-header animate-on-scroll">
+                <h2>Don't Hesitate to Ask Questions</h2>
+                <p>Leave a Message & We'll Get Back to You</p>
+            </div>
+            
+            <div class="contact-form-container animate-on-scroll">
+                <div class="row g-0">
+                    <div class="col-lg-5">
+                        <div class="contact-info-sidebar">
+                            <h3>For Any Enquiry</h3>
+                            <p>We're here to help you with any questions about our services. Reach out to us and we'll respond as soon as possible.</p>
+                            
+                            <div class="contact-detail-large">
+                                <i class="fas fa-phone"></i>
+                                <span>+91 97865 57739</span>
+                            </div>
+                            <div class="contact-detail-large">
+                                <i class="fas fa-phone"></i>
+                                <span>+91 63800 72252</span>
+                            </div>
+                            <div class="contact-detail-large">
+                                <i class="fas fa-phone"></i>
+                                <span>+91 95851 25566</span>
+                            </div>
+                            <div class="contact-detail-large">
+                                <i class="fas fa-envelope"></i>
+                                <span>info@webnox.com</span>
+                            </div>
+                            <div class="contact-detail-large">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Coimbatore, Tamil Nadu</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="form-side">
+                            <h3>Request a Free Quote</h3>
+                            
+                            <div class="success-message" id="successMessage">
+                                <i class="fas fa-check-circle me-2"></i> Thank you! Your message has been sent successfully.
+                            </div>
+                            
+                            <form id="contactForm">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter your full name">
+                                    <div class="error-message" id="nameError">Please enter your name</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Your Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter your email address">
+                                    <div class="error-message" id="emailError">Please enter a valid email address</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Mobile No</label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="Enter your mobile number">
+                                    <div class="error-message" id="phoneError">Please enter a valid 10-digit mobile number</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message" class="form-label">Your Message</label>
+                                    <textarea class="form-control form-textarea" id="message" placeholder="Tell us about your project or inquiry"></textarea>
+                                    <div class="error-message" id="messageError">Please enter your message</div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary-custom w-100">START YOUR PROJECT</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Application Development</a></li>
+                            <li><a href="#">Web Development</a></li>
+                            <li><a href="#">Digital Marketing</a></li>
+                            <li><a href="#">UI/UX Design</a></li>
+                            <li><a href="#">Cloud Solutions</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Our Team</a></li>
+                            <li><a href="#">Testimonials</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-column">
+                        <h4>Connect With Us</h4>
+                        <ul class="footer-links">
+                            <li><a href="#"><i class="fab fa-facebook me-2"></i> Facebook</a></li>
+                            <li><a href="#"><i class="fab fa-twitter me-2"></i> Twitter</a></li>
+                            <li><a href="#"><i class="fab fa-linkedin me-2"></i> LinkedIn</a></li>
+                            <li><a href="#"><i class="fab fa-instagram me-2"></i> Instagram</a></li>
+                            <li><a href="#"><i class="fab fa-youtube me-2"></i> YouTube</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Webnox. All rights reserved. | Empowering Businesses Overturn The Ordinary.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Social Media Modal -->
+    <div class="social-modal" id="socialModal">
+        <div class="social-modal-content">
+            <button class="social-modal-close" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="social-modal-img">
+                <img id="modalImage" src="" alt="">
+            </div>
+            <h3 class="social-modal-name" id="modalName"></h3>
+            <div class="social-modal-role" id="modalRole"></div>
+            <div class="social-links">
+                <a href="#" class="social-link facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Team member data
+        const teamMembers = {
+            1: {
+                name: "SABARINATHAN MUTHU.ER",
+                role: "Chief Executive Officer",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            },
+            2: {
+                name: "Sarah Williams",
+                role: "Creative Director",
+                image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            },
+            3: {
+                name: "Michael Chen",
+                role: "CTO & Lead Developer",
+                image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            },
+            4: {
+                name: "Priya Sharma",
+                role: "Digital Marketing Head",
+                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            }
+        };
+
+        // Form validation functions
+        function validateName() {
+            const name = document.getElementById('name').value.trim();
+            const error = document.getElementById('nameError');
+            
+            if (name === '') {
+                showError('name', 'Please enter your name');
+                return false;
+            } else if (name.length < 2) {
+                showError('name', 'Name must be at least 2 characters');
+                return false;
+            } else {
+                hideError('name');
+                return true;
+            }
+        }
+        
+        function validateEmail() {
+            const email = document.getElementById('email').value.trim();
+            const error = document.getElementById('emailError');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (email === '') {
+                showError('email', 'Please enter your email address');
+                return false;
+            } else if (!emailRegex.test(email)) {
+                showError('email', 'Please enter a valid email address');
+                return false;
+            } else {
+                hideError('email');
+                return true;
+            }
+        }
+        
+        function validatePhone() {
+            const phone = document.getElementById('phone').value.trim();
+            const error = document.getElementById('phoneError');
+            const phoneRegex = /^[6-9]\d{9}$/;
+            
+            if (phone === '') {
+                showError('phone', 'Please enter your mobile number');
+                return false;
+            } else if (!phoneRegex.test(phone)) {
+                showError('phone', 'Please enter a valid 10-digit mobile number');
+                return false;
+            } else {
+                hideError('phone');
+                return true;
+            }
+        }
+        
+        function validateMessage() {
+            const message = document.getElementById('message').value.trim();
+            const error = document.getElementById('messageError');
+            
+            if (message === '') {
+                showError('message', 'Please enter your message');
+                return false;
+            } else if (message.length < 10) {
+                showError('message', 'Message must be at least 10 characters');
+                return false;
+            } else {
+                hideError('message');
+                return true;
+            }
+        }
+        
+        function showError(field, message) {
+            const input = document.getElementById(field);
+            const error = document.getElementById(field + 'Error');
+            
+            input.classList.add('error');
+            error.textContent = message;
+            error.classList.add('show');
+        }
+        
+        function hideError(field) {
+            const input = document.getElementById(field);
+            const error = document.getElementById(field + 'Error');
+            
+            input.classList.remove('error');
+            error.classList.remove('show');
+        }
+        
+        function validateForm() {
+            const isNameValid = validateName();
+            const isEmailValid = validateEmail();
+            const isPhoneValid = validatePhone();
+            const isMessageValid = validateMessage();
+            
+            return isNameValid && isEmailValid && isPhoneValid && isMessageValid;
+        }
+        
+        function showSuccessMessage() {
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+        }
+        
+        function resetForm() {
+            document.getElementById('contactForm').reset();
+            document.querySelectorAll('.error-message').forEach(error => {
+                error.classList.remove('show');
+            });
+            document.querySelectorAll('.form-control').forEach(input => {
+                input.classList.remove('error');
+            });
+        }
+
+        // Scroll animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.style.padding = '10px 0';
+                    navbar.style.boxShadow = '0 4px 18px rgba(0, 0, 0, 0.15)';
+                } else {
+                    navbar.style.padding = '15px 0';
+                    navbar.style.boxShadow = '0 4px 18px rgba(0, 0, 0, 0.1)';
+                }
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Team member click event
+            document.querySelectorAll('.team-member').forEach(member => {
+                member.addEventListener('click', function() {
+                    const memberId = this.getAttribute('data-member');
+                    const memberData = teamMembers[memberId];
+                    
+                    if (memberData) {
+                        document.getElementById('modalImage').src = memberData.image;
+                        document.getElementById('modalName').textContent = memberData.name;
+                        document.getElementById('modalRole').textContent = memberData.role;
+                        document.getElementById('socialModal').classList.add('active');
+                    }
+                });
+            });
+            
+            // Close modal
+            document.getElementById('closeModal').addEventListener('click', function() {
+                document.getElementById('socialModal').classList.remove('active');
+            });
+            
+            // Close modal when clicking outside
+            document.getElementById('socialModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                }
+            });
+            
+            // Form validation and submission
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (validateForm()) {
+                    // In a real application, you would send the form data to a server here
+                    // For this example, we'll just show a success message
+                    showSuccessMessage();
+                    resetForm();
+                }
+            });
+            
+            // Real-time validation
+            document.getElementById('name').addEventListener('blur', validateName);
+            document.getElementById('email').addEventListener('blur', validateEmail);
+            document.getElementById('phone').addEventListener('blur', validatePhone);
+            document.getElementById('message').addEventListener('blur', validateMessage);
+        });
+    </script>
+</body>
+</html>
